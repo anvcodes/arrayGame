@@ -27,14 +27,15 @@
     <!-- TODOS -->
     <!-- Set up giphy call back  -->
     <!-- save picture for each artist -->
-    
+
     <script type= "text/javascript">
+
     
         var musicArtists= ["Kodak black", "Johnny Cash", "Woody Nelson", "Beyonce", "Shakira"];
     for(var i= 0; i< musicArtists.length; i++){
         //math floor to generate random number 
         //have the array index be that random number so guess is random
-        console.log(musicArtists[i]);
+        // console.log(musicArtists[i]);
     }
         $("#guessBtn").on("click", function(){
            event.preventDefault()
@@ -42,13 +43,38 @@
             console.log(userInput);
 
         })
-        // if userInput is equal to random guess -- score goes up 
-        // picture of the artist displays
+        var score = 0;
 
-            //if their guess isnt in array push userInout to the array
+
+        // if userInput is equal to random guess -- score goes up
+        if(userInput === "Beyonce"||"Kodak black"|| "Johnny Cash"|| "Woody Nelson"){
+                // picture of the artist displays
+               
+                $("#artistName").on("click", function(){
+                // musicArtists.push(userInput);
+               
+
+                var score = score + 1;
+            })
+        }
+
+        if(userInput !== "Beyonce"||"Kodak black"|| "Johnny Cash"|| "Woody Nelson"){
+            var score = score;
+              //if their guess isnt in array push userInout to the array
+            $("#artistName").on("click", function(){
+                musicArtists.push(userInput); 
+                var score = score - 1;
+            })
+            musicArtists.push(userInput);
+            var userInput= $("#artistName").val()
+
+        }
+
        
         var userInput= $("#artistName").val()
-       console.log(userInput);
+    //    console.log(userInput);
+       console.log(score);
+    //    console.log(musicArtists)
 
     </script>
 </body>
